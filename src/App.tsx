@@ -1,11 +1,16 @@
 import { useState } from 'react'
 import "./global.css"
+import styles from "./App.module.css"
+import Header from './components/Header'
 
 function App() {
   return (
-    <div className="App">
-      Hello world
-    </div>
+    <>
+      <Header/>
+      <div className={styles.App}>
+        Hello world
+      </div>
+    </>
   )
 }
 
