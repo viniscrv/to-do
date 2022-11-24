@@ -1,5 +1,6 @@
 import React from 'react'
-import styles from "./Taks.module.css"
+import styles from "./Tasks.module.css"
+import Task from './Task'
 
 const Tasks = () => {
   return (
@@ -9,7 +10,9 @@ const Tasks = () => {
             <div className={styles.informacoes__concluidas}>Concluídas<span>2 de 5</span></div>
         </div>
 
-        <div></div>
+        <div>
+            <Task/>
+        </div>
     </>
   )
 }

@@ -1,0 +1,39 @@
+.task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .6em;
+    background-color: var(--gray-400);
+    border-radius: 8px;
+}
+
+.checkbox input {
+    display: none;
+}
+
+.checkbox label {
+    color: var(--gray-100);
+    margin: 0 1em;
+}
+
+.checkbox input + label:before {
+    content: "";
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid var(--blue);
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 12px;
+}
+
+.checkbox input:checked + label:before {
+    background-color: var(--purple-dark);
+    border: 2px solid var(--purple-dark);
+
+}
+
+.task button {
+    background-color: transparent;
+    border: 0;
+}
