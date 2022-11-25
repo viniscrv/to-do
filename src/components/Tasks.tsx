@@ -12,6 +12,8 @@ const Tasks = () => {
 
         <div>
             <Task/>
+            <Task/>
+            <Task/>
         </div>
     </>
   )

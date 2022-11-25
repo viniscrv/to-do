@@ -7,12 +7,14 @@ const Task = () => {
     <div className={styles.task}>
         <div>
             <div className={styles.checkbox}>
-                <input type="checkbox" id="task"/>
-                <label htmlFor="task">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</label>
+                
+                <label>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                  <input type="checkbox" id="task" />
+                </label>
             </div>
         </div>
         <button>
-            <Trash size={32} />
+            <Trash size={26} />
         </button>
     </div>
   )

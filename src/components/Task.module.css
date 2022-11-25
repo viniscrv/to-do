@@ -7,6 +7,10 @@
     border-radius: 8px;
 }
 
+.task + .task {
+    margin-top: 1em;
+}
+
 .checkbox input {
     display: none;
 }
@@ -16,7 +20,7 @@
     margin: 0 1em;
 }
 
-.checkbox input + label:before {
+.checkbox label:before {
     content: "";
     width: 18px;
     height: 18px;
@@ -27,13 +31,26 @@
     margin-right: 12px;
 }
 
-.checkbox input:checked + label:before {
+.checkbox label::before {
     background-color: var(--purple-dark);
     border: 2px solid var(--purple-dark);
+    background-image: url(../assets/checked.svg);
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-position: center;
 
 }
 
 .task button {
     background-color: transparent;
     border: 0;
+    cursor: pointer;
+    color: var(--gray-300);
+    margin-right: .7em;
+    border-radius: 8px;
 }
+
+.task button:hover {
+    color: var(--danger );
+}
+
