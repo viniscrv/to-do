@@ -2,7 +2,6 @@ import { useState } from "react";
 import "./global.css";
 import styles from "./App.module.css";
 import Header from "./components/Header";
-import Input from "./components/Input";
 import Tasks from "./components/Tasks";
 
 const taskList = [
@@ -17,7 +16,7 @@ function App() {
     <>
       <Header />
       <div className={styles.App}>
-        <Input taskList={taskList} />
+        <Tasks taskList={taskList} />
       </div>
     </>
   );
