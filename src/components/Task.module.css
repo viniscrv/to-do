@@ -2,8 +2,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: .6em;
-    background-color: var(--gray-400);
+    padding: .8em;
+    background-color: var(--gray-600);
     border-radius: 8px;
 }
 
