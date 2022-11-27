@@ -14,6 +14,8 @@ const Tasks = ({ taskList }: taskListProps) => {
 
   const [taskText, setTaskText] = useState("");
 
+  const [taskProgress, setTaskProgress] = useState(0);
+
   const sizeTaskList = newTaskList.length;
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -38,10 +40,18 @@ const Tasks = ({ taskList }: taskListProps) => {
   function toggleStatus(taskToToggle: string) {
     const taskToggled = newTaskList.map((task) => {
       if (task.task === taskToToggle) {
+        
+        if (task.isComplete) {
+          setTaskProgress((prev) => prev - 1);
+        } else {
+          setTaskProgress((prev) => prev + 1);
+        }
+
         return { ...task, isComplete: !task.isComplete };
       }
       return task;
     });
+
     setNewTaskList(taskToggled);
   }
 
@@ -58,13 +68,15 @@ const Tasks = ({ taskList }: taskListProps) => {
         <button type="submit">Criar</button>
       </form>
 
-      <button onClick={() => console.log(newTaskList)}>console.log</button>
       <div className={styles.informacoes}>
         <div className={styles.informacoes__criadas}>
           Tarefas criadas<span>{sizeTaskList}</span>
         </div>
         <div className={styles.informacoes__concluidas}>
-          Concluídas<span>0 de {sizeTaskList}</span>
+          Concluídas
+          <span>
+            {taskProgress} de {sizeTaskList}
+          </span>
         </div>
       </div>
 

@@ -2,7 +2,6 @@ import { Trash } from "phosphor-react";
 import React, { useState } from "react";
 import styles from "./Task.module.css";
 
-
 interface taskProps {
   content: string;
   status: boolean;
@@ -10,8 +9,7 @@ interface taskProps {
   onToggle: (taskToToggle: string) => void;
 }
 
-const Task = ({content, status, onDelete, onToggle}: taskProps) => {
-
+const Task = ({ content, status, onDelete, onToggle }: taskProps) => {
   function handleDelete() {
     onDelete(content);
   }
@@ -21,9 +19,9 @@ const Task = ({content, status, onDelete, onToggle}: taskProps) => {
   }
 
   return (
-    <div className={styles.task} >
+    <div className={styles.task}>
       <div>
-        <div className={!status ? styles.checkbox : styles.checkbox_complete} >
+        <div className={!status ? styles.checkbox : styles.checkbox_complete}>
           <label>
             {content}
             <span onClick={handleStatus}>
