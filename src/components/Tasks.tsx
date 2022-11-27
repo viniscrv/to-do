@@ -18,8 +18,6 @@ const Tasks = ({ taskList }: taskListProps) => {
 
   const sizeTaskList = newTaskList.length;
 
-  let countTaskComplete = 0;
-
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setNewTaskList([...newTaskList, { task: taskText, isComplete: false }]);
