@@ -18,6 +18,8 @@ const Tasks = ({ taskList }: taskListProps) => {
 
   const sizeTaskList = newTaskList.length;
 
+  let countTaskComplete = 0;
+
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setNewTaskList([...newTaskList, { task: taskText, isComplete: false }]);
@@ -31,23 +33,28 @@ const Tasks = ({ taskList }: taskListProps) => {
 
   function deleteTask(taskToDelete: string) {
     const tasksWithoutDeleted = newTaskList.filter((task) => {
+
+      if (task.task === taskToDelete){
+        if (task.isComplete){
+          setTaskProgress((prev) => prev - 1);
+        }
+      }
+      
       return task.task !== taskToDelete;
     });
-
-    setTaskProgress((prev) => prev - 1);
-
+    
     setNewTaskList(tasksWithoutDeleted);
   }
 
   function toggleStatus(taskToToggle: string) {
     const taskToggled = newTaskList.map((task) => {
       if (task.task === taskToToggle) {
-        
-        if (task.isComplete) {
-          setTaskProgress((prev) => prev - 1);
-        } else {
-          setTaskProgress((prev) => prev + 1);
-        }
+
+         if (task.isComplete) {
+           setTaskProgress((prev) => prev - 1);
+         } else {
+           setTaskProgress((prev) => prev + 1);
+         } 
 
         return { ...task, isComplete: !task.isComplete };
       }
