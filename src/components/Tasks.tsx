@@ -34,6 +34,8 @@ const Tasks = ({ taskList }: taskListProps) => {
       return task.task !== taskToDelete;
     });
 
+    setTaskProgress((prev) => prev - 1);
+
     setNewTaskList(tasksWithoutDeleted);
   }
 
