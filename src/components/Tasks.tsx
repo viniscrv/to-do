@@ -31,6 +31,13 @@ const Tasks = ({ taskList }: taskListProps) => {
 
   function deleteTask(taskToDelete: string) {
     const tasksWithoutDeleted = newTaskList.filter((task) => {
+      
+      if (task.task === taskToDelete) {
+        if (task.isComplete) {
+          setTaskProgress((prev) => prev - 1);
+        }
+      }
+
       return task.task !== taskToDelete;
     });
 
@@ -40,7 +47,6 @@ const Tasks = ({ taskList }: taskListProps) => {
   function toggleStatus(taskToToggle: string) {
     const taskToggled = newTaskList.map((task) => {
       if (task.task === taskToToggle) {
-        
         if (task.isComplete) {
           setTaskProgress((prev) => prev - 1);
         } else {
