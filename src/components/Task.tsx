@@ -5,22 +5,30 @@ import styles from "./Task.module.css";
 
 interface taskProps {
   content: string;
+  status: boolean;
   onDelete: (taskToDelete: string) => void;
+  onToggle: (taskToToggle: string) => void;
 }
 
-const Task = ({content, onDelete}: taskProps) => {
+const Task = ({content, status, onDelete, onToggle}: taskProps) => {
 
   function handleDelete() {
     onDelete(content);
   }
 
+  function handleStatus() {
+    onToggle(content);
+  }
+
   return (
-    <div className={styles.task}>
+    <div className={styles.task} >
       <div>
-        <div className={styles.checkbox}>
+        <div className={!status ? styles.checkbox : styles.checkbox_complete} >
           <label>
             {content}
-            <input type="checkbox" id="task" />
+            <span onClick={handleStatus}>
+              <input type="checkbox" id="task" />
+            </span>
           </label>
         </div>
       </div>
